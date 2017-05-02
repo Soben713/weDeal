@@ -20,5 +20,8 @@ from mainapp import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.HomeView.as_view())
+    url(r'^$', views.HomeView.as_view(), name="home"),
+    url(r'^add-deal/', views.AddDeal.as_view(), name="add-deal"),
+    url(r'^sign-in/', views.SignIn.as_view(), name="sign-in"),
+    url(r'^sign-up/', views.SignUp.as_view(), name="sign-up"),
 ]
