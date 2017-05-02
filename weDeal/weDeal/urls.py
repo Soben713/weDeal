@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^add-deal/', views.AddDeal.as_view(), name="add-deal"),
     url(r'^sign-in/', views.SignIn.as_view(), name="sign-in"),
     url(r'^sign-up/', views.SignUp.as_view(), name="sign-up"),
+    url(r'^deals/', views.DealsView.as_view(), name="deals"),
 ]

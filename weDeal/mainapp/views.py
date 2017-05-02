@@ -13,5 +13,10 @@ class AddDeal(TemplateView):
 class SignIn(TemplateView):
     template_name = "sign-in.html"
 
+
 class SignUp(TemplateView):
     template_name = "sign-up.html"
+
+
+class DealsView(TemplateView):
+    template_name = "deals.html"
