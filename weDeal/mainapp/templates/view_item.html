@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="card">
+            <div class="container-fliud">
+                <div class="wrapper row">
+                    <div class="preview col-md-6">
+                        <div class="preview-pic tab-content">
+                          <div class="tab-pane active" id="pic-1"><img src="http://modernsurvivalblog.com/wp-content/uploads/2010/09/best-survival-battery-alkaline-and-NiMH-rechargeable.jpg" /></div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="details col-md-6">
+                        <h3 class="product-title">Item Title</h3>
+                        <div class="rating">
+                            <div class="stars">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+
+                        </div>
+                        <p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
+                        <h4 class="price">Unit Price: <span>$180</span></h4>
+                        <p class="vote"><strong>91%</strong> taken, <strong>4</strong> participants, <strong>13</strong> units left</p>
+
+                        <div class="input-group number-spinner">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
+                </span>
+                <input type="text" class="form-control text-center" value="1">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
+                </span>
+            </div>
+
+                        <div class="action">
+                            <button class="add-to-cart btn btn-default" type="button">I Want In!</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

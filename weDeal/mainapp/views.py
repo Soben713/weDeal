@@ -7,7 +7,7 @@ class HomeView(TemplateView):
 
 
 class AddDeal(TemplateView):
-    template_name = "add-deal.html"
+    template_name = "add_deal.html"
 
 
 class SignIn(TemplateView):
