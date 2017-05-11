@@ -4,29 +4,49 @@
 {% block content %}
 
     <div class="container mt40">
+{#        <h3>Active Deals</h3>#}
+{#        <hr/>#}
         <section class="row">
 
             <!-- loop through items, each item is a separate article -->
 
             <!-- start of item 1 -->
-            {% for x in "xxxx" %}
+            {% for x in "x" %}
             {% for deal in deals %}
-            <article class="col-xs-12 col-sm-6 col-md-3">
+            <article class="col-xs-6 col-sm-6 col-md-3">
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <!-- put a link here to transition to the view_item.html page -->
-                        <a href="{% url "deal" deal.id %}" title="Nature Portfolio" class="zoom" data-title="Amazing Nature"
+                        <a href="{% url "deal" deal.id %}" title="Nature Portfolio" data-title="Amazing Nature"
                            data-footer="The beauty of nature" data-type="image" data-toggle="lightbox">
                             <!-- image of item -->
                             <img class="deal-image" src="{{ deal.image.url }}" alt=""/>
                         </a>
                     </div>
                     <div class="panel-footer">
-                        <h4><a href="{% url "deal" deal.id %}" title="Nature Portfolio">{{ deal.name }}</a></h4>
-                        <span class="label label-info">${{ deal.unit_price }}</span>
-                        <h6>{{ deal.description }}</h6>
+                        <h4><a href="{% url "deal" deal.id %}" title="Nature Portfolio">
+                            {{ deal.name }}</a>
+                        </h4>
+                        <span class="label label-danger" style="float:right">{{ deal.percentage_taken | floatformat:1}}%</span>
+                        <span class="label label-info" style="float:right; margin-right:5px">${{ deal.unit_price | floatformat:1 }}</span>
                         <h6>Total price: ${{ deal.total_price }}</h6>
+                        <h6>{{ deal.available_items }} units available out of {{ deal.number_of_items }}</h6>
                         <h6>Valid until {{ deal.ending_date }}</h6>
+                        <hr/>
+                        <h6>{{ deal.description| truncatechars:42}}</h6>
+                        <hr/>
+                        <h6 style="float:left; margin:0">Added by {{ deal.owner.username }}</h6>
+                        <div class="rating" style="float:right; width:70px; font-size:8pt">
+                            <div class="stars">
+                                {% for x in deal.checked_stars_str %}
+                                    <span class="fa fa-star checked"></span>
+                                {% endfor %}
+                                {% for x in deal.unchecked_stars_str %}
+                                    <span class="fa fa-star"></span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             </article>

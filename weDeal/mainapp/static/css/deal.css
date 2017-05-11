@@ -99,6 +99,7 @@ img {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
+    padding-left: 50px !important;
 }
 
 .colors {
@@ -109,12 +110,12 @@ img {
 }
 
 .product-title, .price, .sizes, .colors {
-    text-transform: UPPERCASE;
+    /*text-transform: UPPERCASE;*/
     font-weight: bold;
 }
 
 .checked, .price span {
-    color: #ff9f1a;
+    color: #76b852;
 }
 
 .product-title, .rating, .product-description, .price, .vote, .sizes {
@@ -147,7 +148,7 @@ img {
 }
 
 .add-to-cart, .like {
-    background: #ff9f1a;
+    background: #76b852;
     padding: 1.2em 1.5em;
     border: none;
     text-transform: UPPERCASE;
@@ -174,7 +175,7 @@ img {
 }
 
 .orange {
-    background: #ff9f1a;
+    background: #76b852;
 }
 
 .green {

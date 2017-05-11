@@ -3,58 +3,107 @@
 
 {% block content %}
 
-    <div class="container">
-        <div class="card">
-            <div class="container-fliud">
-                <div class="wrapper row">
-                    <div class="preview col-md-6">
-                        <div class="preview-pic tab-content">
-                          <div class="tab-pane active" id="pic-1">
-                              <img src="{{ object.image.url }}" />
-                          </div>
-
+    <div class="container mt40">
+        <div class="container-fliud">
+            <div class="wrapper row">
+                <div class="preview col-md-3">
+                    <div class="preview-pic tab-content">
+                        <div class="tab-pane active" id="pic-1">
+                            <img src="{{ object.image.url }}" style="border-radius: 4px"/>
                         </div>
-
 
                     </div>
-                    <div class="details col-md-6">
-                        <h3 class="product-title">{{ object.name }}</h3>
-                        <div class="rating">
-                            <div class="stars">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
+
+
+                </div>
+                <div class="details col-md-9">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h3 class="product-title">{{ object.name }} </h3>
+
+                            <div class="rating">
+                                <div class="stars">
+                                    {% for x in object.checked_stars_str %}
+                                        <span class="fa fa-star checked"></span>
+                                    {% endfor %}
+                                    {% for x in object.unchecked_stars_str %}
+                                        <span class="fa fa-star"></span>
+                                    {% endfor %}
+                                </div>
                             </div>
 
+                            <h5 class="vote"><strong>{{ object.percentage_taken|floatformat:1 }}%</strong> taken,
+                                <strong>{{ object.available_items }}</strong> units left</h5>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success progress-bar-striped"
+                                     style="width: {{ object.percentage_taken }}%">
+                                    <span class="sr-only">35% Complete (success)</span>
+                                </div>
+                            </div>
+
+                            <p class="product-description">
+                                {{ object.description }}
+                            </p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5 class="price">Total Price: <span>${{ object.total_price }}</span></h5>
+                                    <h5 class="price">Number of Items: <span>{{ object.number_of_items }}</span></h5>
+                                    <h5 class="price">Unit Price: <span>${{ object.unit_price|floatformat:1 }}</span>
+                                    </h5>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="price">Added by <span>{{ object.owner.username }}</span></h5>
+                                    <h5 class="price">Valid until <span>{{ object.ending_date }}</span></h5>
+                                </div>
+                            </div>
+
+                            <form class="form-inline" style="margin-top: 20px">
+                                <div class="form-group">
+                                    <input type="number" max="{{ object.available_items }}" min="1" value="1"
+                                           style="padding: 5px; width: 80px; margin-right: 5px">
+                                    <button class="add-to-cart btn" type="button">Add</button>
+                                </div>
+                            </form>
                         </div>
-                        <p class="product-description">
-                            {{ object.description }}
-                        </p>
-                        <h4 class="price">Total Price: <span>${{ object.total_price }}</span></h4>
-                        <h4 class="price">Number of Items: <span>{{ object.number_of_items }}</span></h4>
-                        <h4 class="price">Unit Price: <span>${{ object.unit_price }}</span></h4>
-                        <p class="vote"><strong>91%</strong> taken, <strong>4</strong> participants, <strong>13</strong> units left</p>
+                        <div class="col-md-5"></div>
+                    </div>
+                    <hr style="margin: 40px 0 !important;"/>
 
-                        <div class="input-group number-spinner">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
-                </span>
-                <input type="text" class="form-control text-center" value="1">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
-                </span>
-            </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            {% for x in 'xxx' %}
+                                <div class="media"
+                                     style="background: #eee; padding: 12px 10px 10px 10px; border-radius: 3px;">
 
-                        <div class="action">
-                            <button class="add-to-cart btn btn-default" type="button">I Want In!</button>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">
+                                            <span class="pull-left" style="margin: -2px 20px 0 0;">Alex</span>
+                                            <div class="rating" style="font-size: 8pt;">
+                                                <div class="stars">
+                                                    {% for x in object.checked_stars_str %}
+                                                        <span class="fa fa-star checked"></span>
+                                                    {% endfor %}
+                                                    {% for x in object.unchecked_stars_str %}
+                                                        <span class="fa fa-star"></span>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </h5>
 
+                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+                                        ante
+                                        sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra
+                                        turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia
+                                        congue
+                                        felis in faucibus.
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <div style="padding: 30px"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 {% endblock content %}

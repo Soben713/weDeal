@@ -25,7 +25,8 @@
             margin: 20px;
         }
     </style>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
 </head>
 <body>
 
@@ -67,7 +68,7 @@
 </div>
 
 
-<nav id="myNavbar" class="navbar navbar-inverse navbar-static-top" role="navigation">
+<nav id="myNavbar" class="navbar my-navbar navbar-static-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="container">
         <div class="navbar-header">
@@ -78,7 +79,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{% url "home" %}">We Deal</a>
+            <a class="navbar-brand" href="{% url "home" %}">WeDeal</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -90,7 +91,7 @@
                 </li>
                 <li>
                     <a href="#" data-toggle="modal" data-target="#add_project">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+{#                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>#}
                         Add a Deal
                     </a>
                 </li>
@@ -110,7 +111,8 @@
 {#                </li>#}
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                        <span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
+{#                        <span class="glyphicon glyphicon-bell" aria-hidden="true"></span>#}
+                        Notifications <span class="label label-default">0</span>
                     </a>
                     <ul class="dropdown-menu">
                         <li>
