@@ -70,6 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'weDeal.wsgi.application'
 
+LOGIN_URL = '/auth/'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases

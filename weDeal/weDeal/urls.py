@@ -20,9 +20,10 @@ from mainapp import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.HomeView.as_view(), name="home"),
+    url(r'^$', views.home_view, name="home"),
     url(r'^add-deal/', views.AddDeal.as_view(), name="add-deal"),
-    url(r'^sign-in/', views.SignIn.as_view(), name="sign-in"),
-    url(r'^sign-up/', views.SignUp.as_view(), name="sign-up"),
-    url(r'^deals/', views.DealsView.as_view(), name="deals"),
+    url(r'^auth/', views.authentication_view, name="auth"),
+    url(r'^deals/', views.deals_view, name="deals"),
+    url(r'^item/', views.ItemView.as_view(), name="item-view"),
+    url(r'^logout/', views.logout_view, name='logout'),
 ]
