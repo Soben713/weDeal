@@ -9,14 +9,16 @@
                 <div class="wrapper row">
                     <div class="preview col-md-6">
                         <div class="preview-pic tab-content">
-                          <div class="tab-pane active" id="pic-1"><img src="http://modernsurvivalblog.com/wp-content/uploads/2010/09/best-survival-battery-alkaline-and-NiMH-rechargeable.jpg" /></div>
+                          <div class="tab-pane active" id="pic-1">
+                              <img src="{{ object.image.url }}" />
+                          </div>
 
                         </div>
 
 
                     </div>
                     <div class="details col-md-6">
-                        <h3 class="product-title">Item Title</h3>
+                        <h3 class="product-title">{{ object.name }}</h3>
                         <div class="rating">
                             <div class="stars">
                                 <span class="fa fa-star checked"></span>
@@ -27,8 +29,12 @@
                             </div>
 
                         </div>
-                        <p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
-                        <h4 class="price">Unit Price: <span>$180</span></h4>
+                        <p class="product-description">
+                            {{ object.description }}
+                        </p>
+                        <h4 class="price">Total Price: <span>${{ object.total_price }}</span></h4>
+                        <h4 class="price">Number of Items: <span>{{ object.number_of_items }}</span></h4>
+                        <h4 class="price">Unit Price: <span>${{ object.unit_price }}</span></h4>
                         <p class="vote"><strong>91%</strong> taken, <strong>4</strong> participants, <strong>13</strong> units left</p>
 
                         <div class="input-group number-spinner">

@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from mainapp.models import Deal
+
+
+class DealAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(Deal, DealAdmin)

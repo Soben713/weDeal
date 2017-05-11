@@ -9,27 +9,27 @@
             <!-- loop through items, each item is a separate article -->
 
             <!-- start of item 1 -->
-            {% for i in "xxxxxxx" %}
+            {% for x in "xxxx" %}
+            {% for deal in deals %}
             <article class="col-xs-12 col-sm-6 col-md-3">
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <!-- put a link here to transition to the view_item.html page -->
-                        <a href="#" title="Nature Portfolio" class="zoom" data-title="Amazing Nature"
+                        <a href="{% url "deal" deal.id %}" title="Nature Portfolio" class="zoom" data-title="Amazing Nature"
                            data-footer="The beauty of nature" data-type="image" data-toggle="lightbox">
                             <!-- image of item -->
-                            <img src="http://modernsurvivalblog.com/wp-content/uploads/2010/09/best-survival-battery-alkaline-and-NiMH-rechargeable.jpg"
-                                 alt=""/>
+                            <img class="deal-image" src="{{ deal.image.url }}" alt=""/>
                         </a>
                     </div>
                     <div class="panel-footer">
-                        <h4><a href="#" title="Nature Portfolio">Item Title</a></h4>
-                        <h5>Item Description</h5>
-                        <h5>Item Price</h5>
-                        <h5>Time Left</h5>
-
+                        <h4><a href="{% url "deal" deal.id %}" title="Nature Portfolio">{{ deal.name }}</a></h4>
+                        <h5>{{ deal.description }}</h5>
+                        <h5>${{ deal.total_price }} total</h5>
+                        <h5>{{ deal.ending_date }}</h5>
                     </div>
                 </div>
             </article>
+            {% endfor %}
             {% endfor %}
             <!-- end of item 1 -->
 

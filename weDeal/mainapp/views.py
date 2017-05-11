@@ -5,9 +5,12 @@ from django.contrib.auth.models import User
 from django.shortcuts import render_to_response, redirect, render
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.base import TemplateView, View
+from django.views.generic.detail import DetailView
 
 from mainapp.forms import LoginForm, RegistrationForm
 from django.template import RequestContext
+
+from mainapp.models import Deal
 
 
 def home_view(request):
@@ -58,11 +61,13 @@ def authentication_view(request):
 
 @login_required
 def deals_view(request):
-    return render(request, 'deals.html', {})
+    deals = Deal.objects.all()
+    return render(request, 'deals.html', {'deals': deals})
 
 
-class ItemView(TemplateView):
-    template_name = "view_item.html"
+class DealView(DetailView):
+    model = Deal
+    template_name = "deal.html"
 
 
 def logout_view(request):

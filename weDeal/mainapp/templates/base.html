@@ -2,111 +2,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>We Deal</title>
-<link rel="stylesheet" type="text/css" href="{% static "css/newsfeed.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static "css/view_item.css" %}">
-  <link rel="stylesheet" type="text/css" href="{% static "css/add_item_popup.css" %}">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<style type="text/css">
-  .bs-example{
-      margin: 20px;
-    }
-</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>We Deal</title>
+    <link rel="stylesheet" type="text/css" href="{% static "css/newsfeed.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/deal.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/add_item_popup.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <style type="text/css">
+        .bs-example {
+            margin: 20px;
+        }
+    </style>
 </head>
 <body>
-  
-<!-- Modal -->
-    <div id="add_project" class="modal fade" role="dialog">
-        <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header login-header">
-                    <h4 class="modal-title">Add a Deal</h4>
-                </div>
-                <form action="/add_item/" method="post">
+<!-- Modal -->
+<div id="add_project" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header login-header">
+                <h4 class="modal-title">Add a Deal</h4>
+            </div>
+            <form action="/add_item/" method="post">
                 <div class="modal-body">
-                        
-                            <input name="item_name" type="text" placeholder="10 Pack Batteries"/>
-                            <textarea cols="40" name="description" rows="10" placeholder="Enter description of deal.."></textarea>
-                            <div style="display: table; width: 100%">
-                                <div style="display: table-cell; width: 50%">
-                                    <input name="total_price" type="number" placeholder="Total Price"  />
-                                </div>
-                                <div style="display: table-cell;width: 50%">
-                                    <input type="number" placeholder="# of Items" name="item_amount">
-                                </div>
-                            </div>
-                            <input type="date" name="ending_date" placeholder="Ending Date">
-                            <input type='file' name="item_image" placeholder="Upload Image"/>
-                        
+
+                    <input name="item_name" type="text" placeholder="10 Pack Batteries"/>
+                    <textarea cols="40" name="description" rows="10"
+                              placeholder="Enter description of deal.."></textarea>
+                    <div style="display: table; width: 100%">
+                        <div style="display: table-cell; width: 50%">
+                            <input name="total_price" type="number" placeholder="Total Price"/>
+                        </div>
+                        <div style="display: table-cell;width: 50%">
+                            <input type="number" placeholder="# of Items" name="item_amount">
+                        </div>
                     </div>
+                    <input type="date" name="ending_date" placeholder="Ending Date">
+                    <input type='file' name="item_image" placeholder="Upload Image"/>
+
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="cancel" data-dismiss="modal">Close</button>
                     <!--<button type="button" class="add-project" data-dismiss="modal">Save</button>-->
                     <button class="add-project" data-dismiss="modal" name="submit" type="submit">Add Deal</button>
                 </div>
-                </form>
-            </div>
-
+            </form>
         </div>
+
     </div>
-  
-  
-  
-  
-  
-  
-<div class="bs-example">
-    <nav id="myNavbar" class="navbar navbar-default" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">We Deal</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Menu <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" data-toggle="modal" data-target="#add_project">Add Deal</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Active Deals</a></li>
-                            <li><a href="#">History</a></li>
-                            <li><a href="#">Log Out</a></li>
-
-                        </ul>
-                    </li>
-                    {% if user.is_authenticated %}
-                        <li>
-                            <a href="{% url 'logout' %}">Logout ({{ user.get_username }})</a>
-                        </li>
-                    {% else %}
-                        <li>
-                            <a href="{% url 'auth' %}">Login</a>
-                        </li>
-                    {% endif %}
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div>
-    </nav>
 </div>
+
+
+<nav id="myNavbar" class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url "home" %}">We Deal</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+                <li>
+                    <a href="{% url "deals" %}">
+                        Active Deals
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#add_project">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        Add a Deal
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+{#                <li class="dropdown">#}
+{#                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Menu <b class="caret"></b></a>#}
+{#                    <ul class="dropdown-menu">#}
+{#                        <li><a href="#" data-toggle="modal" data-target="#add_project">Add Deal</a></li>#}
+{#                        <li class="divider"></li>#}
+{#                        <li><a href="#">Active Deals</a></li>#}
+{#                        <li><a href="#">History</a></li>#}
+{#                        <li><a href="#">Log Out</a></li>#}
+{##}
+{#                    </ul>#}
+{#                </li>#}
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                        <span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div style="padding: 15px 20px 0; width:400px;">
+                                <div class="alert alert-info">
+                                You don't have any notifications.
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}">Logout ({{ user.get_username }})</a>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div>
+</nav>
 
 {% block content %}
 

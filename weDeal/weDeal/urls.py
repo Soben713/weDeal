@@ -13,10 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, static
 from django.contrib import admin
 
 from mainapp import views
+from weDeal import settings
+
+admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,6 +27,6 @@ urlpatterns = [
     url(r'^add-deal/', views.AddDeal.as_view(), name="add-deal"),
     url(r'^auth/', views.authentication_view, name="auth"),
     url(r'^deals/', views.deals_view, name="deals"),
-    url(r'^item/', views.ItemView.as_view(), name="item-view"),
+    url(r'^deal/(?P<pk>[-\w]+)/', views.DealView.as_view(), name="deal"),
     url(r'^logout/', views.logout_view, name='logout'),
-]
+] + static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
