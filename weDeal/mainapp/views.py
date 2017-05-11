@@ -2,14 +2,12 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.shortcuts import render_to_response, redirect, render
+from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic.base import TemplateView, View
+from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 
-from mainapp.forms import LoginForm, RegistrationForm
-from django.template import RequestContext
-
+from mainapp.forms import LoginForm, RegistrationForm, DealForm
 from mainapp.models import Deal
 
 
@@ -73,3 +71,13 @@ class DealView(DetailView):
 def logout_view(request):
     logout(request)
     return redirect('auth')
+
+
+def add_deal(request):
+    if request.method == 'POST':
+        deal_form = DealForm(request.POST, request.FILES, prefix="add-deal")
+        if deal_form.is_valid():
+            obj = deal_form.save(commit=False)
+            obj.owner = request.user
+            obj.save()
+    return redirect('deals')

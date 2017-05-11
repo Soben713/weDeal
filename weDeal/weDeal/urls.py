@@ -24,7 +24,7 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home_view, name="home"),
-    url(r'^add-deal/', views.AddDeal.as_view(), name="add-deal"),
+    url(r'^add-deal/', views.add_deal, name="add-deal"),
     url(r'^auth/', views.authentication_view, name="auth"),
     url(r'^deals/', views.deals_view, name="deals"),
     url(r'^deal/(?P<pk>[-\w]+)/', views.DealView.as_view(), name="deal"),

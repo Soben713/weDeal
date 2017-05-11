@@ -1,3 +1,7 @@
 .deal-image {
   height: 210px !important;
 }
+
+body {
+    font-family: 'Roboto', sans-serif !important;
+}

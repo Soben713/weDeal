@@ -25,6 +25,7 @@
             margin: 20px;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body>
 
@@ -37,28 +38,27 @@
             <div class="modal-header login-header">
                 <h4 class="modal-title">Add a Deal</h4>
             </div>
-            <form action="/add_item/" method="post">
+            <form action="{% url 'add-deal' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
                 <div class="modal-body">
-
-                    <input name="item_name" type="text" placeholder="10 Pack Batteries"/>
-                    <textarea cols="40" name="description" rows="10"
-                              placeholder="Enter description of deal.."></textarea>
+                    {{ add_deal_form.name }}
+                    {{ add_deal_form.description }}
                     <div style="display: table; width: 100%">
                         <div style="display: table-cell; width: 50%">
-                            <input name="total_price" type="number" placeholder="Total Price"/>
+                            {{ add_deal_form.total_price }}
                         </div>
                         <div style="display: table-cell;width: 50%">
-                            <input type="number" placeholder="# of Items" name="item_amount">
+                            {{ add_deal_form.number_of_items }}
                         </div>
                     </div>
-                    <input type="date" name="ending_date" placeholder="Ending Date">
-                    <input type='file' name="item_image" placeholder="Upload Image"/>
-
+                    {{ add_deal_form.ending_date }}
+                    {{ add_deal_form.image }}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="cancel" data-dismiss="modal">Close</button>
                     <!--<button type="button" class="add-project" data-dismiss="modal">Save</button>-->
-                    <button class="add-project" data-dismiss="modal" name="submit" type="submit">Add Deal</button>
+{#                    <button class="add-project" data-dismiss="modal" name="submit" type="submit">Add Deal</button>#}
+                    <input type="submit" class="add-project" value="submit" />
                 </div>
             </form>
         </div>

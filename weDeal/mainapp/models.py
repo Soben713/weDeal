@@ -16,3 +16,5 @@ class Deal(models.Model):
     def unit_price(self):
         return self.total_price / self.number_of_items
 
+    def __str__(self):
+        return self.name

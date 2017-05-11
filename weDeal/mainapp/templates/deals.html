@@ -23,9 +23,10 @@
                     </div>
                     <div class="panel-footer">
                         <h4><a href="{% url "deal" deal.id %}" title="Nature Portfolio">{{ deal.name }}</a></h4>
-                        <h5>{{ deal.description }}</h5>
-                        <h5>${{ deal.total_price }} total</h5>
-                        <h5>{{ deal.ending_date }}</h5>
+                        <span class="label label-info">${{ deal.unit_price }}</span>
+                        <h6>{{ deal.description }}</h6>
+                        <h6>Total price: ${{ deal.total_price }}</h6>
+                        <h6>Valid until {{ deal.ending_date }}</h6>
                     </div>
                 </div>
             </article>

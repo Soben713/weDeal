@@ -1,5 +1,8 @@
 from django import forms
+from django.forms.models import ModelForm
 from django.utils.translation import ugettext_lazy as _
+
+from mainapp.models import Deal
 
 
 class LoginForm(forms.Form):
@@ -37,3 +40,8 @@ class RegistrationForm(forms.Form):
         widget=forms.TextInput(attrs={'placeholder': 'Phone number'})
     )
 
+
+class DealForm(ModelForm):
+    class Meta:
+        model = Deal
+        fields = ['name', 'description', 'total_price', 'number_of_items', 'ending_date', 'image']
